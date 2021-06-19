@@ -1,19 +1,20 @@
-require('dotenv').config();
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Blog Demo",
+    title: `Gatsby Shops board`,
   },
   plugins: [
-    'gatsby-plugin-postcss',
     {
-      resolve: "gatsby-source-datocms",
+      resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_API_TOKEN,
         environment: process.env.DATO_ENVIRONMENT,
+        apiUrl: `https://site-api.datocms.com`
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
   ],
 };
