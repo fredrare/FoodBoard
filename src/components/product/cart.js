@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 export default function Cart ({ shop }) {
     const tempItems = cart.getCart(shop)?.items
-    const tempKeys = Object.keys(tempItems ?? {}).sort()
+    const tempKeys = Object.keys(tempItems || {}).sort()
     const tempSubtotal = tempKeys.reduce((acum, curr) => acum + tempItems[curr].qty * tempItems[curr].price, 0)
 
     const [items, setItems] = useState(tempItems)
@@ -13,7 +13,7 @@ export default function Cart ({ shop }) {
     const [subtotal, setSubtotal] = useState(tempSubtotal)
 
     useEffect(() => {
-        setKeys(Object.keys(items ?? {}).sort())
+        setKeys(Object.keys(items || {}).sort())
     }, [items])
 
     useEffect(() => {
