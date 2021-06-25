@@ -10,7 +10,7 @@ module.exports = {
       options: {
         apiToken: process.env.DATO_API_TOKEN,
         environment: process.env.DATO_ENVIRONMENT,
-        apiUrl: `https://site-api.datocms.com`
+        // apiUrl: `https://site-api.datocms.com`
       },
     },
     `gatsby-plugin-postcss`,
