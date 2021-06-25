@@ -1,7 +1,5 @@
 const setItem = function (item, shop, qty, price, update=false) {
     if (typeof window === 'undefined') return
-    console.log(`Item added: ${item}`)
-    console.log(qty)
     const current = JSON.parse(
         localStorage.getItem(shop.id) ?? JSON.stringify({
             shopName: shop.name,
@@ -25,9 +23,8 @@ export default {
     removeItem: (item, shop) => setItem(item, shop, 0),
     getCart(shop) {
         if (typeof window === 'undefined') return {}
-        console.log(shop)
         const current = JSON.parse(
-            localStorage.getItem(shop.id) ?? JSON.stringify({})
+            localStorage.getItem(shop.id) || '{}'
         )
         return current
     }

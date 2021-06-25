@@ -5,7 +5,7 @@ import Body from "../../components/product/body"
 import Preface from "../../components/product/bodyPreface"
 
 export default function ProductBody ({ data: { product } }) {
-    return <Container>
+    return <Container shop={product.shop}>
         <Preface
             name={product.name}
             description={product.description}

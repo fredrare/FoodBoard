@@ -5,7 +5,7 @@ import Body from '../../components/shop/body'
 import BodyPreface from '../../components/shop/bodyPreface'
 
 export default function ShopPage({ data: { shop } }) {
-    return <Container>
+    return <Container shop={shop}>
         <BodyPreface
             name={shop.name}
             description={shop.description}
@@ -18,6 +18,7 @@ export default function ShopPage({ data: { shop } }) {
 export const query = graphql`
     query ShopById($id: String) {
         shop: datoCmsShop(id: { eq: $id }) {
+            id
             name
             slug
             description

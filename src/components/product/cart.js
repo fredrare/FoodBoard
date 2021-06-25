@@ -35,13 +35,11 @@ export default function Cart ({ shop }) {
                                         </div>
                                         <div className="flex justify-center items-center">
                                             <div className="pr-8 flex"> <span className="font-semibold" onClick={() => {
-                                                console.log('click')
                                                 cart.updateItem(item, shop, parseInt(items[item].qty) - 1, items[item].price, true)
                                                 setItems(cart.getCart(shop)?.items)
                                             }}>-</span>
                                             <input type="text" className="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value={items[item]?.qty}/>
                                             <span className="font-semibold" onClick={() => {
-                                                console.log('click')
                                                 cart.updateItem(item, shop, parseInt(items[item].qty) + 1, items[item].price, true)
                                                 setItems(cart.getCart(shop)?.items)
                                             }}>+</span> </div>
