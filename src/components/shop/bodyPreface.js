@@ -9,7 +9,7 @@ export default function BodyPreface({ slug, name, description, image, category }
     return <section className="text-blueGray-700 ">
       <div className="container flex flex-col px-5 py-16 mx-auto lg:items-center md:flex-row lg:px-28">
         <div className="w-full mb-10 lg:w-5/6 lg:max-w-lg md:w-1/2">
-          <Link to={`/${slug}`}>
+          <Link to={`/${slug}`} title={`Portada de ${name}`}>
             <GatsbyImage
                 fluid={{
                     ...image,
