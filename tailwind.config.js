@@ -1,6 +1,6 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules'],
-  safelist: 'text-white lg:px-16 px-6 bg-black flex flex-wrap items-center fixed w-full z-50 transition-all duration-200 flex items-center justify-between flex-1 block pointer-cursor lg:hidden w-full lg:flex lg:items-center lg:w-auto hidden text-white fill-current'.split(' '),
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  safelist: ["text-white","lg:px-16","px-6","bg-black","flex","flex-wrap","items-center","fixed","w-full","z-50","transition-all","duration-200","flex","items-center","justify-between","flex-1","block","pointer-cursor","lg:hidden","w-full","lg:flex","lg:items-center","lg:w-auto","hidden","text-white","fill-current"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
