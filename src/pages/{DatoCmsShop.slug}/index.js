@@ -4,8 +4,8 @@ import Container from '../../components/main/container'
 import Body from '../../components/shop/body'
 import BodyPreface from '../../components/shop/bodyPreface'
 
-export default function ShopPage({ data: { shop } }) {
-    return <Container shop={shop}>
+export default function ShopPage({data: {site: {favicon}, shop}}) {
+    return <Container shop={shop} favicon={favicon} seo={shop.seo}>
         <BodyPreface
             name={shop.name}
             description={shop.description}
@@ -23,6 +23,9 @@ export const query = graphql`
             name
             slug
             description
+            seo: seoMetaTags {
+                ...GatsbyDatoCmsSeoMetaTags
+            }
             previewImage {
                 small: fluid(
                     imgixParams: { fm: "jpg" }
@@ -41,6 +44,11 @@ export const query = graphql`
                       ...GatsbyDatoCmsFluid
                     }
                 }
+            }
+        }
+        site: datoCmsSite {
+            favicon: faviconMetaTags {
+              ...GatsbyDatoCmsFaviconMetaTags
             }
         }
     }

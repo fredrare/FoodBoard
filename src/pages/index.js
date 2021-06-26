@@ -5,8 +5,8 @@ import Usage from '../components/main/usage'
 import Preface from '../components/main/bodyPreface'
 import Body from '../components/main/body'
 
-export default function Index ({ data: {page, shops: {nodes: shops}} }) {
-  return <Container>
+export default function Index ({data: {site: {favicon}, page: {seo}, shops: {nodes: shops}}}) {
+  return <Container seo={seo} favicon={favicon}>
     <Usage />
     <Preface />
     <Body shops={ shops }/>
@@ -30,6 +30,14 @@ query MyQuery {
   }
   page: datoCmsPage {
     name
+    seo: seoMetaTags {
+      ...GatsbyDatoCmsSeoMetaTags
+    }
+  }
+  site: datoCmsSite {
+    favicon: faviconMetaTags {
+      ...GatsbyDatoCmsFaviconMetaTags
+    }
   }
 }
 `;
