@@ -35,8 +35,9 @@ export default function Gallery ({ main, images, alt}) {
         loop={true}
         loopAdditionalSlides={1}
     >
-        {slideImages.map(image => (<SwiperSlide
+        {slideImages.map((image, index) => (<SwiperSlide
             className="flex flex-cols items-center justify-center inline-block align-middle"
+            key={`${alt}-${index}`}
         >
             <GatsbyImage
                 fluid={{

@@ -11,6 +11,7 @@ export default function Body ({ shops }) {
                     excerpt={shop.excerpt}
                     slug={shop.slug}
                     image={shop.previewImage.small}
+                    key={shop.id}
                 />
             ))}
         </div>

@@ -29,7 +29,7 @@ export default function Cart ({ shop }) {
                             <div className="md:grid md:grid-cols-3 gap-2 ">
                                 <div className="col-span-3 p-5">
                                     <h1 className="text-xl font-medium ">Carrito en {shop.name}</h1>
-                                    {keys.length ? keys.map(item => <div className="flex justify-between items-center mt-6 pt-6 border-t">
+                                    {keys.length ? keys.map(item => <div className="flex justify-between items-center mt-6 pt-6 border-t" key={item}>
                                         <div className="flex items-center"> <img src="https://i.imgur.com/xbTAITF.jpg" width="60" className="rounded-full " alt="img"/>
                                             <div className="flex flex-col ml-3 "> <span className="text-md font-medium">{item}</span></div>
                                         </div>

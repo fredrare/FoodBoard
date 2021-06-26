@@ -12,6 +12,7 @@ export default function Body ({ slug, products }) {
                     image={product.previewImage.small}
                     price={product.price}
                     shopSlug={slug}
+                    key={product.slug}
                 />
             ))}
         </div>

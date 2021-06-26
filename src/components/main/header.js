@@ -9,7 +9,6 @@ export default function Header({ shop }) {
     let cartSection = null
     if (shop) {
         const items = cart.getCart(shop)?.items || {}
-        const qty = Object.keys(items).reduce((acum, curr) => acum + items[curr].qty, 0)
         cartSection = (shop && <Link to={`/${shop.slug}/cart`}>
             <div className="flex flex-row-reverse ml-2 w-full">
                 <div slot="icon" className="relative">
@@ -51,7 +50,7 @@ export default function Header({ shop }) {
         <nav>
             <ul className="items-center justify-between text-base lg:flex pt-0">
                 {links.map(x => (
-                    <li>
+                    <li key={x.name}>
                         <Link to={x.link} className="block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-yellow-200 transition-all duration-200">
                             {x.name}
                         </Link>

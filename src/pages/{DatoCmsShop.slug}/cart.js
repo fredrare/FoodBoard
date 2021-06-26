@@ -10,6 +10,7 @@ export default function ShopPage({ data: { shop } }) {
             name={shop.name}
             description={shop.description}
             image={shop.previewImage.small}
+            slug={shop.slug}
         />
         <Cart shop={shop}/>
     </Container>
