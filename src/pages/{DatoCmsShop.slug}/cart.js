@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from "gatsby"
 import Container from '../../components/main/container'
-import Cart from '../../components/product/cart'
+import Cart from '../../components/cart/cart'
 import BodyPreface from '../../components/shop/bodyPreface'
 
 export default function ShopPage({data: {site: {favicon}, shop}}) {

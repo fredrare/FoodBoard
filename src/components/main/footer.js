@@ -38,9 +38,9 @@ export default function Footer() {
             </span>
         </div>
         </footer>
-        <footer className="w-full px-8 mt-4 rounded-b-lg bg-gray-200">
-            <div className="container inline-flex flex-col flex-wrap items-center px-5 py-6 mx-auto sm:flex-row">
-                <h2 className="mx-auto mb-4 text-xs font-semibold tracking-widest text-black uppercase title-font"> Pide y come. No te compliques más. </h2>
+        <footer className="w-full px-8 rounded-b-lg bg-gray-200 flex flex-cols items-center justify-center">
+            <div className="container inline-flex flex-wrap items-center px-5 py-6 mx-auto flex-row w-full">
+                <h2 className="mx-auto text-xs font-semibold tracking-widest text-black uppercase title-font"> Pide y come. No te compliques más. </h2>
             </div>
         </footer>
   </div>

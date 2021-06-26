@@ -1,24 +1,22 @@
 import React, {useState, useEffect} from 'react' 
 import cart from '../../scripts/cart'
-import OrderNow from './orderNow'
+import OrderNow from '../product/orderNow'
 import { Link } from 'gatsby'
 
 export default function Cart ({ shop }) {
-    const tempItems = cart.getCart(shop)?.items
-    const tempKeys = Object.keys(tempItems || {}).sort()
-    const tempSubtotal = tempKeys.reduce((acum, curr) => acum + tempItems[curr].qty * tempItems[curr].price, 0)
-
-    const [items, setItems] = useState(tempItems)
-    const [keys, setKeys] = useState(tempKeys)
-    const [subtotal, setSubtotal] = useState(tempSubtotal)
+    const [items, setItems] = useState(cart.getCart(shop)?.items)
+    const [keys, setKeys] = useState([])
+    const [subtotal, setSubtotal] = useState(0)
 
     useEffect(() => {
-        setKeys(Object.keys(items || {}).sort())
+        const tempKeys = Object.keys(items || {}).sort()
+        setKeys(tempKeys)
+        setSubtotal(tempKeys.reduce((acum, curr) => acum + items[curr].qty * items[curr].price, 0))
     }, [items])
 
-    useEffect(() => {
-        setSubtotal(keys.reduce((acum, curr) => acum + items[curr].qty * items[curr].price, 0))
-    }, [keys])
+    const clickable = {
+        cursor: 'pointer'
+    }
 
     return <section>
         <div className="h-screen">
@@ -37,12 +35,12 @@ export default function Cart ({ shop }) {
                                             <div className="pr-8 flex"> <span className="font-semibold" onClick={() => {
                                                 cart.updateItem(item, shop, parseInt(items[item].qty) - 1, items[item].price, true)
                                                 setItems(cart.getCart(shop)?.items)
-                                            }}>-</span>
-                                            <input type="text" className="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value={items[item]?.qty}/>
+                                            }} style={clickable}>-</span>
+                                            <span className="focus:outline-none bg-gray-100 border h-6 rounded text-sm px-2 mx-2">{items[item]?.qty}</span>
                                             <span className="font-semibold" onClick={() => {
                                                 cart.updateItem(item, shop, parseInt(items[item].qty) + 1, items[item].price, true)
                                                 setItems(cart.getCart(shop)?.items)
-                                            }}>+</span> </div>
+                                            }} style={clickable}>+</span> </div>
                                             <div className="pr-8"> <span className="text-xs font-medium">S/{items[item]?.price}</span> </div>
                                             <div> <i className="fa fa-close text-xs font-medium"></i> </div>
                                         </div>
@@ -59,7 +57,9 @@ export default function Cart ({ shop }) {
                         </div>
                     </div>
                 </div>
-                <OrderNow items={items} phone={shop.phone}/>
+                <div className="max-w-md mx-auto md:max-w-5xl">
+                    <OrderNow items={items} phone={shop.phone}/>
+                </div>
             </div>
         </div>
     </section>
